@@ -1,0 +1,64 @@
+# Great Expectations Configuration File
+# This file contains the main configuration for Great Expectations
+
+config_version: 3
+
+# Specify the data context configuration
+datasources:
+  sample_data:
+    class_name: Datasource
+    execution_engine:
+      class_name: PandasExecutionEngine
+    data_connectors:
+      default_filesystem_connector:
+        class_name: FilesystemDataConnector
+        base_directory: ./data/
+        default_regex:
+          group_names:
+            - data_asset_name
+          pattern: (.+)\.csv
+
+# Stores configuration
+stores:
+  expectations_store:
+    class_name: ExpectationsStore
+    store_backend:
+      class_name: FilesystemStoreBackend
+      base_directory: ./great_expectations/expectations/
+  
+  validations_store:
+    class_name: ValidationsStore
+    store_backend:
+      class_name: FilesystemStoreBackend
+      base_directory: ./great_expectations/validations/
+  
+  evaluation_parameter_store:
+    class_name: EvaluationParameterStore
+
+  checkpoint_store:
+    class_name: CheckpointStore
+    store_backend:
+      class_name: FilesystemStoreBackend
+      base_directory: ./great_expectations/checkpoints/
+
+# Expectations store name
+expectations_store_name: expectations_store
+validations_store_name: validations_store
+evaluation_parameter_store_name: evaluation_parameter_store
+checkpoint_store_name: checkpoint_store
+
+# Data docs configuration
+data_docs_sites:
+  local_site:
+    class_name: SiteBuilder
+    show_how_to_buttons: true
+    store_backend:
+      class_name: FilesystemStoreBackend
+      base_directory: ./great_expectations/docs/
+    site_index_builder:
+      class_name: DefaultSiteIndexBuilder
+
+# Analytics settings
+anonymous_usage_statistics:
+  data_context_id: auto-generated-uuid
+  enabled: false

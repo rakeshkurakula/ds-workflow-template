@@ -1,0 +1,12 @@
+# Feast Feature Store Configuration
+project: ds-workflow-template
+registry:
+  registry_type: file
+  path: feature_store.db
+provider: local
+online_store:
+  type: sqlite
+  path: online_store.db
+offline_store:
+  type: file
+entity_key_serialization_version: 2

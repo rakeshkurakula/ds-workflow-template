@@ -46,7 +46,7 @@ format:
 # Serve: Start development server
 serve:
 	@echo "Starting development server..."
-	uv run uvicorn app.main:app --reload
+	uv run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 # Precommit: Run tests and linters (CI pipeline)
 precommit: test lint

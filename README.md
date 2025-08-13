@@ -329,9 +329,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For questions, issues, or contributions:
-- **Issues**: [GitHub Issues](https://github.com/rakeshkurakula/ds-workflow-template/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/rakeshkurakula/ds-workflow-template/discussions)
-- **Email**: [your-email@example.com](mailto:your-email@example.com)
+- **Email**: [rakeshk](mailto:rakeshk94@pm.me)
 
 ---
 

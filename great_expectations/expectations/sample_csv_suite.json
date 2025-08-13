@@ -1,0 +1,115 @@
+{
+  "expectation_suite_name": "sample_csv_suite",
+  "ge_cloud_id": null,
+  "expectations": [
+    {
+      "expectation_type": "expect_table_columns_to_match_ordered_list",
+      "kwargs": {
+        "column_list": ["id", "name", "age", "email", "created_date"]
+      },
+      "meta": {
+        "notes": {
+          "format": "markdown",
+          "content": "Ensure the table has the expected column structure in the correct order."
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_table_row_count_to_be_between",
+      "kwargs": {
+        "min_value": 1,
+        "max_value": 10000
+      },
+      "meta": {
+        "notes": {
+          "format": "markdown",
+          "content": "Ensure the table has a reasonable number of rows (between 1 and 10,000)."
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {
+        "notes": {
+          "format": "markdown",
+          "content": "ID column should never contain null values."
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {
+        "notes": {
+          "format": "markdown",
+          "content": "ID column should contain only unique values."
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "name"
+      },
+      "meta": {
+        "notes": {
+          "format": "markdown",
+          "content": "Name column should not be null."
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "age",
+        "min_value": 0,
+        "max_value": 120
+      },
+      "meta": {
+        "notes": {
+          "format": "markdown",
+          "content": "Age should be a reasonable value between 0 and 120."
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_regex",
+      "kwargs": {
+        "column": "email",
+        "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+      },
+      "meta": {
+        "notes": {
+          "format": "markdown",
+          "content": "Email should match a valid email format."
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_strftime_format",
+      "kwargs": {
+        "column": "created_date",
+        "strftime_format": "%Y-%m-%d"
+      },
+      "meta": {
+        "notes": {
+          "format": "markdown",
+          "content": "Created date should be in YYYY-MM-DD format."
+        }
+      }
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "0.18.0",
+    "notes": {
+      "format": "markdown",
+      "content": "This is a sample expectation suite for CSV data validation. It includes common data quality checks for a typical user dataset with ID, name, age, email, and created_date columns."
+    }
+  },
+  "data_asset_type": "DataFrame"
+}

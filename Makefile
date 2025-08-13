@@ -1,16 +1,17 @@
-.PHONY: setup run-mlflow ge-init test lint format serve precommit help
+.PHONY: setup run-mlflow ge-init test lint format serve precommit precommit-install help
 
 # Default help target
 help:
 	@echo "Available targets:"
-	@echo "  setup      - Install dependencies using uv sync"
-	@echo "  run-mlflow - Start MLflow UI server"
-	@echo "  ge-init    - Initialize Great Expectations"
-	@echo "  test       - Run tests"
-	@echo "  lint       - Run linting with ruff"
-	@echo "  format     - Format code with ruff format"
-	@echo "  serve      - Start development server with uvicorn"
-	@echo "  precommit  - Run tests and linters (CI pipeline)"
+	@echo "  setup           - Install dependencies using uv sync"
+	@echo "  run-mlflow      - Start MLflow UI server"
+	@echo "  ge-init         - Initialize Great Expectations"
+	@echo "  test            - Run tests"
+	@echo "  lint            - Run linting with ruff"
+	@echo "  format          - Format code with ruff format"
+	@echo "  serve           - Start development server with uvicorn"
+	@echo "  precommit       - Run tests and linters (CI pipeline)"
+	@echo "  precommit-install - Install pre-commit hooks"
 
 # Setup: Install dependencies using uv
 setup:
@@ -51,6 +52,13 @@ serve:
 # Precommit: Run tests and linters (CI pipeline)
 precommit: test lint
 	@echo "Pre-commit checks completed successfully!"
+
+# Pre-commit Install: Install and setup pre-commit hooks
+precommit-install:
+	@echo "Installing pre-commit hooks..."
+	uv run pip install pre-commit
+	uv run pre-commit install
+	@echo "Pre-commit hooks installed successfully!"
 
 # Clean: Clean up temporary files and caches
 clean:
